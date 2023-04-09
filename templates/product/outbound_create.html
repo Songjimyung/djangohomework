@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>상품 출고</h1>
+    <form method="POST">
+      {% csrf_token %}
+      <label for="product">상품 선택:</label>
+      <select name="product_id" id="product">
+        <option value="">선택해주세요.</option>
+        {% for product in products %}
+          <option value="{{ product.id }}">{{ product.code }}_{{ product.name }}</option>
+        {% endfor %}
+      </select><br><br>
+      <label for="quantity">수량:</label>
+      <input type="number" name="quantity" id="quantity" min="0"><br><br>
+      <button type="submit">저장</button>
+    </form>
+
+
+{% endblock %}

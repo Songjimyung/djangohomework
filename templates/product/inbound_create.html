@@ -1,0 +1,29 @@
+{#{% extends 'base.html' %}#}
+{##}
+{#{% block content %}#}
+{#  <h2>상품 입고 기록</h2>#}
+{#  <form method="POST">#}
+{#    {% csrf_token %}#}
+{#    {{ form.as_p }}#}
+{#    <button type="submit">저장</button>#}
+{#  </form>#}
+{#{% endblock %}#}
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>상품 입고 기록</h2>
+  <form method="POST">
+      {% csrf_token %}
+      <label for="product">상품 선택:</label>
+      <select name="product_id" id="product">
+        <option value="">선택해주세요.</option>
+        {% for product in products %}
+          <option value="{{ product.id }}">{{ product.code }}_{{ product.name }}</option>
+        {% endfor %}
+      </select><br><br>
+      <label for="quantity">수량:</label>
+      <input type="number" name="quantity" id="quantity" min="0"><br><br>
+      <button type="submit">저장</button>
+    </form>
+{% endblock %}

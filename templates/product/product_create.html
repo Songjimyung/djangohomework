@@ -1,0 +1,36 @@
+{#{% extends 'base.html' %}#}
+{##}
+{#{% block content %}#}
+{#    <h1>상품 등록</h1>#}
+{#    <form method="POST">#}
+{#        {% csrf_token %}#}
+{#        <label for="code">상품 코드</label>#}
+{#        <input type="text" id="code" name="code" required><br>#}
+{#        <label for="name">상품 이름</label>#}
+{#        <input type="text" id="name" name="name" required><br>#}
+{#        <label for="description">상품 설명</label>#}
+{#        <textarea id="description" name="description"></textarea><br>#}
+{#        <label for="price">상품 가격</label>#}
+{#        <input type="number" id="price" name="price" required><br>#}
+{#        <label for="size">상품 사이즈</label>#}
+{#        <select id="size" name="size">#}
+{#            {% for size in sizes %}#}
+{#                <option value="{{ size.0 }}">{{ size.1 }}</option>#}
+{#            {% endfor %}#}
+{#        </select><br>#}
+{#        <label for="amount">상품 수량</label>#}
+{#        <input type="number" id="amount" name="amount" required><br>#}
+{#        <button type="submit">등록</button>#}
+{#    </form>#}
+{#{% endblock %}#}
+<!-- product_create.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Create Product</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Create</button>
+    </form>
+{% endblock %}

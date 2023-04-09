@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>재고 현황</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>제품 이름</th>
+        <th>입고 수량</th>
+        <th>출고 수량</th>
+        <th>총 재고 수량</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ product.code }}_{{ product.name }}</td>
+        <td>{{ inbound_quantity }}</td>
+        <td>{{ outbound_quantity }}</td>
+        <td>{{ stock_quantity }}</td>
+      </tr>
+    </tbody>
+  </table>
+{% endblock %}
+
+
+
+
+
+
+
+
